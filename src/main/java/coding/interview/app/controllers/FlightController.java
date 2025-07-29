@@ -25,9 +25,7 @@ public class FlightController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Flight> getFlightById(@PathVariable Long id) {
-        // TODO: this endpoint is not working as expected
-        final Optional<Flight> flight = flightService.findById(id);
-        return ResponseEntity.ok(flight.get());
+        return ResponseEntity.of(flightService.findById(id));
     }
 
     @PutMapping("/{id}")

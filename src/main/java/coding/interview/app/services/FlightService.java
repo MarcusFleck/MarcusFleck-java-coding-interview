@@ -20,7 +20,7 @@ public class FlightService {
     }
 
     public Optional<Flight> findById(Long id) {
-        return Optional.empty();
+        return flightRepository.findById(id);
     }
 
     public Flight save(Flight flight) {

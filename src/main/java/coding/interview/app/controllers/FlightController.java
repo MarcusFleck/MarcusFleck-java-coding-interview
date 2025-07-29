@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/flights")
@@ -30,11 +29,6 @@ public class FlightController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Flight> updateFlight(@PathVariable Long id, @RequestBody UpdateFlightRequest request) {
-        // TODO: this endpoint is not working as expected
-        final Optional<Flight> flight = flightService.findById(id);
-        final Flight updatedFlight = new Flight(flight.get().getId(), request.code(), request.origin(),
-                request.destination(), request.status());
-        flightService.save(updatedFlight);
-        return ResponseEntity.ok(updatedFlight);
+        return ResponseEntity.of(flightService.update(id, request));
     }
 }

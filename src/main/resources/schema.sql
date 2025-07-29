@@ -6,3 +6,16 @@ CREATE TABLE IF NOT EXISTS flight
     destination VARCHAR(255) NOT NULL,
     status      VARCHAR(255) NOT NULL
 );
+
+
+CREATE TABLE IF NOT EXISTS flight_passengers (
+     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+     flight BIGINT NOT NULL,
+     passenger BIGINT NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS passenger (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
